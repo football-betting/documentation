@@ -17,7 +17,11 @@
     "scoreTeam1": null,
     "scoreTeam2": null,
 }
-# or
+```
+
+or with score
+
+```
 {
     "matchId": "2020-06-16-21:00-FR-DE",
     "team1" : "FR",
@@ -190,4 +194,4 @@
 
 [Chrome-Extenstion Gliffy](https://chrome.google.com/webstore/detail/gliffy-diagrams/bhmicilclplefnflapjmnngmkkkkpfad?utm_source=chrome-app-launcher-info-dialog)
 
-File: ./data-flows.gliffy
+File: [./data-flows.gliffy](https://raw.githubusercontent.com/football-betting/documentation/master/data-flows.gliffy)
