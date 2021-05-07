@@ -175,3 +175,61 @@ Proposes for the tests: <https://github.com/football-betting/symfony4/blob/maste
 
 at the test the Expected code was earlier different: <https://github.com/football-betting/symfony4/tree/master/src/GameBetting/Business/GamePoints/Score>
 
+
+## RankingList
+
+The service gets a json from CalculationList and MatchList and returns a ranking list of all users.
+
+The Ranking List should only be recalculated when the CalculationList changes. 
+
+
+```JSON
+{
+   "event":"ranking.all",
+   "data":{
+    "games" : [{
+            "matchId": "2020-06-16:2100:FR-DE",
+            "team1" : "FR",
+            "team2" : "DE",
+            "matchDatetime": "2020-06-16 21:00",
+            "scoreTeam1": 1,
+            "scoreTeam2": 4,
+        },
+        {
+            "matchId": "2020-06-20:1800:PT-DE",
+            "team1" : "PT",
+            "team2" : "DE",
+            "matchDatetime": "2020-06-20 18:00",
+            "scoreTeam1": null,
+            "scoreTeam2": null,
+        }
+        ...
+    ],
+    "users" : [
+        {
+            "name" : "ninja",
+            "position" : 1,
+            "scoreSum" : 24,
+            "tips" : [
+                {
+                    "matchId": "2020-06-16:2100:FR-DE",
+                    "score": 4,
+                    "tipTeam1": 2,
+                    "tipTeam2": 3,
+                },
+                {
+                    "matchId": "2020-06-20:1800:PT-DE",
+                    "score": null,
+                    "tipTeam1": 4,
+                    "tipTeam2": 2,
+                }
+            ]
+        },
+        ...
+    ]
+}
+}
+```
+
+
+
