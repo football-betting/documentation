@@ -276,7 +276,7 @@ The Ranking List should only be recalculated when the CalculationList changes.
 
 
 
-##### DayWin
+## DayWin
 
 Winner of the day.
 
