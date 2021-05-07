@@ -230,6 +230,48 @@ The Ranking List should only be recalculated when the CalculationList changes.
 }
 }
 ```
+##### DayWin
+
+Winner of the day.
+
+The service is to determine who has won the most points on the given day.
+
+The service gets a JSON from CalculationList and determines the winner.
+
+Example Json, this can still be changed
+
+```JSON
+{
+   "event":"winner.day",
+   "data": {
+      "2020-06-16": [
+         {
+            "user": "ninja",
+            "score": 4
+         },
+         {
+            "user": "rockstar",
+            "score": 3
+         } 
+      ],
+      ...
+      ...
+   }
+}
+```
+
+
+
+##### RateAPI JSON
+
+> nice to have
+
+The service it should be suggestions of Betting application:
+- how many shans are which who win
+- which result should be (goals)
+
+Which Json should he be gelifert? TBD
+
 
 
 
