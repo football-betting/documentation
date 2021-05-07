@@ -50,6 +50,14 @@ When a game is loud, the goals must be sent along. The json should look like thi
 
 Please send one event per game
 
+#### Target service:
+
+* Match - `match.api.to.match`
+
+#### Event for this service:
+
+* No
+
 
 ## Match
 
@@ -84,6 +92,15 @@ a match-json with all players should be delivered
    ]
 }
 ```
+
+#### Target service:
+
+* CalculationList - `match.to.calculation`
+
+#### Event for this service:
+
+* Match - `match.api.to.match`
+
 
 
 ## Tip
@@ -134,6 +151,14 @@ The tip list is per user related, so if a user changes his tip the service has t
 }
 ```
 
+#### Target service:
+
+* CalculationList - `tip.list.to.calculation`
+
+#### Event for this service:
+
+* App (Frontend) - `app.to.tip`
+
 ## CalculationList 
 
 Calculation service gets info from MatchList (All games incl. goals, if there are - Event: match) and TipsList (All tips from all users)
@@ -175,6 +200,15 @@ Proposes for the tests: <https://github.com/football-betting/symfony4/blob/maste
 
 at the test the Expected code was earlier different: <https://github.com/football-betting/symfony4/tree/master/src/GameBetting/Business/GamePoints/Score>
 
+#### Target service:
+
+* RankingList - `calculation.to.ranking`
+* WindDay - `calculation.to.win.day`
+
+#### Event for this service:
+
+* Match - `match.to.calculation`
+* TipList - `tip.list.to.calculation`
 
 ## RankingList
 
@@ -230,6 +264,18 @@ The Ranking List should only be recalculated when the CalculationList changes.
 }
 }
 ```
+
+#### Target service:
+
+* App (Frontend) - `ranking.to.app`
+
+#### Event for this service:
+
+* Match - `match.to.calculation`
+* TipList - `tip.list.to.calculation`
+
+
+
 ##### DayWin
 
 Winner of the day.
@@ -260,6 +306,13 @@ Example Json, this can still be changed
 }
 ```
 
+#### Target service:
+
+* App (Frontend) - `win.day.to.app`
+
+#### Event for this service:
+
+* Calculation - `calculation.to.win.day`
 
 
 ##### RateAPI JSON
