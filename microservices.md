@@ -134,7 +134,44 @@ The tip list is per user related, so if a user changes his tip the service has t
 }
 ```
 
+## CalculationList 
 
+Calculation service gets info from MatchList (All games incl. goals, if there are - Event: match) and TipsList (All tips from all users)
 
+The service calculates how many times a user has won a game. 
 
+The service delivers all users with all scores, the service should deliver the JSON only when it gets an updated MatchList.
+
+```JSON
+{
+   "event":"calculation",
+   "data":[
+      {
+       "matchId": "2020-06-16:2100-FR-DE",
+       "user" : "ninja",
+       "score": 2,
+       "tipTeam1": 2,
+       "tipTeam2": 3
+      },
+      {
+       "matchId": "2020-06-16:2100-PL-IT",
+       "user" : "rockstar",
+       "score": 0,
+       "tipTeam1": 0,
+       "tipTeam2": 4
+      }
+   ]
+}
+```
+
+Scoring:
+
+* 0 points - no hit
+* 1 point - the winner was correctly determined
+* 2 point - the winner was correctly determined and correct goal difference was there
+* 4 point - the winner was correctly determined and correct goal was there
+
+Proposes for the tests: <https://github.com/football-betting/symfony4/blob/master/tests/Unit/GameBetting/Business/GamePoints/PointsTest.php>
+
+at the test the Expected code was earlier different: <https://github.com/football-betting/symfony4/tree/master/src/GameBetting/Business/GamePoints/Score>
 
