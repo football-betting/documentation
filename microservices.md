@@ -113,7 +113,7 @@ The json was made to look like this:
 
 ```JSON
 {
-   "event":"tip.user",
+   "event":"app.to.tip",
    "data":{
        "matchId": "2020-06-16:2100-FR-DE",
        "user" : "ninja",
